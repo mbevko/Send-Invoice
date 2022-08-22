@@ -3904,9 +3904,9 @@ Partial Public Class MFGCOMDataSet
         
         Private columnBILNAME As Global.System.Data.DataColumn
         
-        Private columnDESC As Global.System.Data.DataColumn
-        
         Private columnSEND_INVOICE As Global.System.Data.DataColumn
+        
+        Private columnINVNUMBER As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -3977,17 +3977,17 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property DESCColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property SEND_INVOICEColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDESC
+                Return Me.columnSEND_INVOICE
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property SEND_INVOICEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property INVNUMBERColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSEND_INVOICE
+                Return Me.columnINVNUMBER
             End Get
         End Property
         
@@ -4028,9 +4028,9 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddOEINVHORow(ByVal INVUNIQ As Decimal, ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal BILNAME As String, ByVal DESC As String, ByVal SEND_INVOICE As String) As OEINVHORow
+        Public Overloads Function AddOEINVHORow(ByVal INVUNIQ As Decimal, ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal BILNAME As String, ByVal SEND_INVOICE As String, ByVal INVNUMBER As String) As OEINVHORow
             Dim rowOEINVHORow As OEINVHORow = CType(Me.NewRow,OEINVHORow)
-            Dim columnValuesArray() As Object = New Object() {INVUNIQ, INVDATE, CUSTOMER, BILNAME, DESC, SEND_INVOICE}
+            Dim columnValuesArray() As Object = New Object() {INVUNIQ, INVDATE, CUSTOMER, BILNAME, SEND_INVOICE, INVNUMBER}
             rowOEINVHORow.ItemArray = columnValuesArray
             Me.Rows.Add(rowOEINVHORow)
             Return rowOEINVHORow
@@ -4063,8 +4063,8 @@ Partial Public Class MFGCOMDataSet
             Me.columnINVDATE = MyBase.Columns("INVDATE")
             Me.columnCUSTOMER = MyBase.Columns("CUSTOMER")
             Me.columnBILNAME = MyBase.Columns("BILNAME")
-            Me.columnDESC = MyBase.Columns("DESC")
             Me.columnSEND_INVOICE = MyBase.Columns("SEND INVOICE")
+            Me.columnINVNUMBER = MyBase.Columns("INVNUMBER")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4078,10 +4078,10 @@ Partial Public Class MFGCOMDataSet
             MyBase.Columns.Add(Me.columnCUSTOMER)
             Me.columnBILNAME = New Global.System.Data.DataColumn("BILNAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBILNAME)
-            Me.columnDESC = New Global.System.Data.DataColumn("DESC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDESC)
             Me.columnSEND_INVOICE = New Global.System.Data.DataColumn("SEND INVOICE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSEND_INVOICE)
+            Me.columnINVNUMBER = New Global.System.Data.DataColumn("INVNUMBER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVNUMBER)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnINVUNIQ}, true))
             Me.columnINVUNIQ.AllowDBNull = false
             Me.columnINVUNIQ.Unique = true
@@ -4090,10 +4090,10 @@ Partial Public Class MFGCOMDataSet
             Me.columnCUSTOMER.MaxLength = 12
             Me.columnBILNAME.AllowDBNull = false
             Me.columnBILNAME.MaxLength = 60
-            Me.columnDESC.AllowDBNull = false
-            Me.columnDESC.MaxLength = 60
             Me.columnSEND_INVOICE.ReadOnly = true
             Me.columnSEND_INVOICE.MaxLength = 60
+            Me.columnINVNUMBER.AllowDBNull = false
+            Me.columnINVNUMBER.MaxLength = 22
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6944,17 +6944,6 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property DESC() As String
-            Get
-                Return CType(Me(Me.tableOEINVHO.DESCColumn),String)
-            End Get
-            Set
-                Me(Me.tableOEINVHO.DESCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property SEND_INVOICE() As String
             Get
                 Try 
@@ -6965,6 +6954,17 @@ Partial Public Class MFGCOMDataSet
             End Get
             Set
                 Me(Me.tableOEINVHO.SEND_INVOICEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property INVNUMBER() As String
+            Get
+                Return CType(Me(Me.tableOEINVHO.INVNUMBERColumn),String)
+            End Get
+            Set
+                Me(Me.tableOEINVHO.INVNUMBERColumn) = value
             End Set
         End Property
         
@@ -12560,8 +12560,8 @@ Namespace MFGCOMDataSetTableAdapters
             tableMapping.ColumnMappings.Add("INVDATE", "INVDATE")
             tableMapping.ColumnMappings.Add("CUSTOMER", "CUSTOMER")
             tableMapping.ColumnMappings.Add("BILNAME", "BILNAME")
-            tableMapping.ColumnMappings.Add("DESC", "DESC")
             tableMapping.ColumnMappings.Add("SEND INVOICE", "SEND INVOICE")
+            tableMapping.ColumnMappings.Add("INVNUMBER", "INVNUMBER")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -12578,10 +12578,10 @@ Namespace MFGCOMDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OE"& _ 
-                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OEIN"& _ 
-                "VH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVU"& _ 
-                "NIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')"
+            Me._commandCollection(0).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, LT"& _ 
+                "RIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            O"& _ 
+                "EINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEINVHO ON OEINVH.INVUNIQ = OEINVHO.I"& _ 
+                "NVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -13067,21 +13067,21 @@ Namespace MFGCOMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As MFGCOMDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._oEINVHTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.OEINVH.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._oEINVHTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._oEINVHO1TableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.OEINVHO1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._oEINVHO1TableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._oEINVHTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.OEINVH.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._oEINVHTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -13095,19 +13095,19 @@ Namespace MFGCOMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As MFGCOMDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._oEINVHTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.OEINVH.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._oEINVHTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._oEINVHO1TableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.OEINVHO1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._oEINVHO1TableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._oEINVHTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.OEINVH.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._oEINVHTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -13121,19 +13121,19 @@ Namespace MFGCOMDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As MFGCOMDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._oEINVHO1TableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.OEINVHO1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._oEINVHO1TableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._oEINVHTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.OEINVH.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._oEINVHTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._oEINVHO1TableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.OEINVHO1.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._oEINVHO1TableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If

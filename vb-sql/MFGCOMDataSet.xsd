@@ -1120,7 +1120,7 @@ SELECT INVUNIQ, AUDTDATE, AUDTTIME, AUDTUSER, AUDTORG, ORDNUMBER, DAYENDNUM, CUS
               <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="MFGCOM.dbo.OEINVH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OEINVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE]
+                    <CommandText>SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER
 FROM            OEINVH INNER JOIN
                          OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ
 WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')</CommandText>
@@ -1134,8 +1134,8 @@ WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')</CommandText>
               <Mapping SourceColumn="INVDATE" DataSetColumn="INVDATE" />
               <Mapping SourceColumn="CUSTOMER" DataSetColumn="CUSTOMER" />
               <Mapping SourceColumn="BILNAME" DataSetColumn="BILNAME" />
-              <Mapping SourceColumn="DESC" DataSetColumn="DESC" />
               <Mapping SourceColumn="SEND INVOICE" DataSetColumn="SEND INVOICE" />
+              <Mapping SourceColumn="INVNUMBER" DataSetColumn="INVNUMBER" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateInvoice" Modifier="Public" Name="UpdateInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateInvoice">
@@ -1203,6 +1203,63 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
   <xs:element name="MFGCOMDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MFGCOMDataSet" msprop:Generator_UserDSName="MFGCOMDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OEINVHO" msprop:Generator_TableClassName="OEINVHODataTable" msprop:Generator_TableVarName="tableOEINVHO" msprop:Generator_TablePropName="OEINVHO" msprop:Generator_RowDeletingName="OEINVHORowDeleting" msprop:Generator_RowChangingName="OEINVHORowChanging" msprop:Generator_RowEvHandlerName="OEINVHORowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHORowDeleted" msprop:Generator_UserTableName="OEINVHO" msprop:Generator_RowChangedName="OEINVHORowChanged" msprop:Generator_RowEvArgName="OEINVHORowChangeEvent" msprop:Generator_RowClassName="OEINVHORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
+              <xs:element name="INVDATE" msprop:Generator_ColumnVarNameInTable="columnINVDATE" msprop:Generator_ColumnPropNameInRow="INVDATE" msprop:Generator_ColumnPropNameInTable="INVDATEColumn" msprop:Generator_UserColumnName="INVDATE" type="xs:decimal" />
+              <xs:element name="CUSTOMER" msprop:Generator_ColumnVarNameInTable="columnCUSTOMER" msprop:Generator_ColumnPropNameInRow="CUSTOMER" msprop:Generator_ColumnPropNameInTable="CUSTOMERColumn" msprop:Generator_UserColumnName="CUSTOMER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BILNAME" msprop:Generator_ColumnVarNameInTable="columnBILNAME" msprop:Generator_ColumnPropNameInRow="BILNAME" msprop:Generator_ColumnPropNameInTable="BILNAMEColumn" msprop:Generator_UserColumnName="BILNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SEND_x0020_INVOICE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSEND_INVOICE" msprop:Generator_ColumnPropNameInRow="SEND_INVOICE" msprop:Generator_ColumnPropNameInTable="SEND_INVOICEColumn" msprop:Generator_UserColumnName="SEND INVOICE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVNUMBER" msprop:Generator_ColumnVarNameInTable="columnINVNUMBER" msprop:Generator_ColumnPropNameInRow="INVNUMBER" msprop:Generator_ColumnPropNameInTable="INVNUMBERColumn" msprop:Generator_UserColumnName="INVNUMBER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OEINVHO1" msprop:Generator_TableClassName="OEINVHO1DataTable" msprop:Generator_TableVarName="tableOEINVHO1" msprop:Generator_RowChangedName="OEINVHO1RowChanged" msprop:Generator_TablePropName="OEINVHO1" msprop:Generator_RowDeletingName="OEINVHO1RowDeleting" msprop:Generator_RowChangingName="OEINVHO1RowChanging" msprop:Generator_RowEvHandlerName="OEINVHO1RowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHO1RowDeleted" msprop:Generator_RowClassName="OEINVHO1Row" msprop:Generator_UserTableName="OEINVHO1" msprop:Generator_RowEvArgName="OEINVHO1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
+              <xs:element name="OPTFIELD" msprop:Generator_ColumnVarNameInTable="columnOPTFIELD" msprop:Generator_ColumnPropNameInRow="OPTFIELD" msprop:Generator_ColumnPropNameInTable="OPTFIELDColumn" msprop:Generator_UserColumnName="OPTFIELD">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VALUE" msprop:Generator_ColumnVarNameInTable="columnVALUE" msprop:Generator_ColumnPropNameInRow="VALUE" msprop:Generator_ColumnPropNameInTable="VALUEColumn" msprop:Generator_UserColumnName="VALUE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="OEINVH" msprop:Generator_TableClassName="OEINVHDataTable" msprop:Generator_TableVarName="tableOEINVH" msprop:Generator_TablePropName="OEINVH" msprop:Generator_RowDeletingName="OEINVHRowDeleting" msprop:Generator_RowChangingName="OEINVHRowChanging" msprop:Generator_RowEvHandlerName="OEINVHRowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHRowDeleted" msprop:Generator_UserTableName="OEINVH" msprop:Generator_RowChangedName="OEINVHRowChanged" msprop:Generator_RowEvArgName="OEINVHRowChangeEvent" msprop:Generator_RowClassName="OEINVHRow">
           <xs:complexType>
             <xs:sequence>
@@ -1939,70 +1996,9 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OEINVHO" msprop:Generator_TableClassName="OEINVHODataTable" msprop:Generator_TableVarName="tableOEINVHO" msprop:Generator_TablePropName="OEINVHO" msprop:Generator_RowDeletingName="OEINVHORowDeleting" msprop:Generator_RowChangingName="OEINVHORowChanging" msprop:Generator_RowEvHandlerName="OEINVHORowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHORowDeleted" msprop:Generator_UserTableName="OEINVHO" msprop:Generator_RowChangedName="OEINVHORowChanged" msprop:Generator_RowEvArgName="OEINVHORowChangeEvent" msprop:Generator_RowClassName="OEINVHORow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
-              <xs:element name="INVDATE" msprop:Generator_ColumnVarNameInTable="columnINVDATE" msprop:Generator_ColumnPropNameInRow="INVDATE" msprop:Generator_ColumnPropNameInTable="INVDATEColumn" msprop:Generator_UserColumnName="INVDATE" type="xs:decimal" />
-              <xs:element name="CUSTOMER" msprop:Generator_ColumnVarNameInTable="columnCUSTOMER" msprop:Generator_ColumnPropNameInRow="CUSTOMER" msprop:Generator_ColumnPropNameInTable="CUSTOMERColumn" msprop:Generator_UserColumnName="CUSTOMER">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="12" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="BILNAME" msprop:Generator_ColumnVarNameInTable="columnBILNAME" msprop:Generator_ColumnPropNameInRow="BILNAME" msprop:Generator_ColumnPropNameInTable="BILNAMEColumn" msprop:Generator_UserColumnName="BILNAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DESC" msprop:Generator_ColumnVarNameInTable="columnDESC" msprop:Generator_ColumnPropNameInRow="DESC" msprop:Generator_ColumnPropNameInTable="DESCColumn" msprop:Generator_UserColumnName="DESC">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="SEND_x0020_INVOICE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSEND_INVOICE" msprop:Generator_ColumnPropNameInRow="SEND_INVOICE" msprop:Generator_ColumnPropNameInTable="SEND_INVOICEColumn" msprop:Generator_UserColumnName="SEND INVOICE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="OEINVHO1" msprop:Generator_TableClassName="OEINVHO1DataTable" msprop:Generator_TableVarName="tableOEINVHO1" msprop:Generator_RowChangedName="OEINVHO1RowChanged" msprop:Generator_TablePropName="OEINVHO1" msprop:Generator_RowDeletingName="OEINVHO1RowDeleting" msprop:Generator_RowChangingName="OEINVHO1RowChanging" msprop:Generator_RowEvHandlerName="OEINVHO1RowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHO1RowDeleted" msprop:Generator_RowClassName="OEINVHO1Row" msprop:Generator_UserTableName="OEINVHO1" msprop:Generator_RowEvArgName="OEINVHO1RowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
-              <xs:element name="OPTFIELD" msprop:Generator_ColumnVarNameInTable="columnOPTFIELD" msprop:Generator_ColumnPropNameInRow="OPTFIELD" msprop:Generator_ColumnPropNameInTable="OPTFIELDColumn" msprop:Generator_UserColumnName="OPTFIELD">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="12" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="VALUE" msprop:Generator_ColumnVarNameInTable="columnVALUE" msprop:Generator_ColumnPropNameInRow="VALUE" msprop:Generator_ColumnPropNameInTable="VALUEColumn" msprop:Generator_UserColumnName="VALUE">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:OEINVH" />
-      <xs:field xpath="mstns:INVUNIQ" />
-    </xs:unique>
-    <xs:unique name="OEINVHO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:OEINVHO" />
       <xs:field xpath="mstns:INVUNIQ" />
     </xs:unique>
@@ -2010,6 +2006,10 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
       <xs:selector xpath=".//mstns:OEINVHO1" />
       <xs:field xpath="mstns:INVUNIQ" />
       <xs:field xpath="mstns:OPTFIELD" />
+    </xs:unique>
+    <xs:unique name="OEINVH_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OEINVH" />
+      <xs:field xpath="mstns:INVUNIQ" />
     </xs:unique>
   </xs:element>
 </xs:schema>
