@@ -54,4 +54,13 @@
         result = Me.OEINVHOTableAdapter.UpdateInvoice(new_sendInvoice, INVUNIQLabel1.Text)
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO)
     End Sub
+
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.OEINVHOTableAdapter.FillBy(Me.MFGCOMDataSet.OEINVHO)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
 End Class

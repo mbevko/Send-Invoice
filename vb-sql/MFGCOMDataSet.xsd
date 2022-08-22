@@ -1117,10 +1117,10 @@ SELECT INVUNIQ, AUDTDATE, AUDTTIME, AUDTUSER, AUDTORG, ORDNUMBER, DAYENDNUM, CUS
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OEINVHOTableAdapter" GeneratorDataComponentClassName="OEINVHOTableAdapter" Name="OEINVHO" UserDataComponentName="OEINVHOTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="MFGCOM.dbo.OEINVH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="MFGCOM.dbo.OEINVH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OEINVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE]
+                    <CommandText>SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OEINVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER
 FROM            OEINVH INNER JOIN
                          OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ
 WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')</CommandText>
@@ -1136,8 +1136,20 @@ WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')</CommandText>
               <Mapping SourceColumn="BILNAME" DataSetColumn="BILNAME" />
               <Mapping SourceColumn="DESC" DataSetColumn="DESC" />
               <Mapping SourceColumn="SEND INVOICE" DataSetColumn="SEND INVOICE" />
+              <Mapping SourceColumn="INVNUMBER" DataSetColumn="INVNUMBER" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="MFGCOM.dbo.OEINVH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OEINVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER
+FROM            OEINVH INNER JOIN
+                         OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ
+WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ORDINV_VIEW (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateInvoice" Modifier="Public" Name="UpdateInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateInvoice">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1203,7 +1215,7 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
   <xs:element name="MFGCOMDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MFGCOMDataSet" msprop:Generator_UserDSName="MFGCOMDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="OEINVH" msprop:Generator_TableClassName="OEINVHDataTable" msprop:Generator_TableVarName="tableOEINVH" msprop:Generator_TablePropName="OEINVH" msprop:Generator_RowDeletingName="OEINVHRowDeleting" msprop:Generator_RowChangingName="OEINVHRowChanging" msprop:Generator_RowEvHandlerName="OEINVHRowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHRowDeleted" msprop:Generator_UserTableName="OEINVH" msprop:Generator_RowChangedName="OEINVHRowChanged" msprop:Generator_RowEvArgName="OEINVHRowChangeEvent" msprop:Generator_RowClassName="OEINVHRow">
+        <xs:element name="OEINVH" msprop:Generator_TableClassName="OEINVHDataTable" msprop:Generator_TableVarName="tableOEINVH" msprop:Generator_RowChangedName="OEINVHRowChanged" msprop:Generator_TablePropName="OEINVH" msprop:Generator_RowDeletingName="OEINVHRowDeleting" msprop:Generator_RowChangingName="OEINVHRowChanging" msprop:Generator_RowEvHandlerName="OEINVHRowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHRowDeleted" msprop:Generator_RowClassName="OEINVHRow" msprop:Generator_UserTableName="OEINVH" msprop:Generator_RowEvArgName="OEINVHRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
@@ -1939,7 +1951,7 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OEINVHO" msprop:Generator_TableClassName="OEINVHODataTable" msprop:Generator_TableVarName="tableOEINVHO" msprop:Generator_TablePropName="OEINVHO" msprop:Generator_RowDeletingName="OEINVHORowDeleting" msprop:Generator_RowChangingName="OEINVHORowChanging" msprop:Generator_RowEvHandlerName="OEINVHORowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHORowDeleted" msprop:Generator_UserTableName="OEINVHO" msprop:Generator_RowChangedName="OEINVHORowChanged" msprop:Generator_RowEvArgName="OEINVHORowChangeEvent" msprop:Generator_RowClassName="OEINVHORow">
+        <xs:element name="OEINVHO" msprop:Generator_TableClassName="OEINVHODataTable" msprop:Generator_TableVarName="tableOEINVHO" msprop:Generator_RowChangedName="OEINVHORowChanged" msprop:Generator_TablePropName="OEINVHO" msprop:Generator_RowDeletingName="OEINVHORowDeleting" msprop:Generator_RowChangingName="OEINVHORowChanging" msprop:Generator_RowEvHandlerName="OEINVHORowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHORowDeleted" msprop:Generator_RowClassName="OEINVHORow" msprop:Generator_UserTableName="OEINVHO" msprop:Generator_RowEvArgName="OEINVHORowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />
@@ -1972,10 +1984,17 @@ SELECT INVUNIQ, OPTFIELD, VALUE FROM OEINVHO WHERE (INVUNIQ = @INVUNIQ) AND (OPT
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="INVNUMBER" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnINVNUMBER" msprop:Generator_ColumnPropNameInRow="INVNUMBER" msprop:Generator_ColumnPropNameInTable="INVNUMBERColumn" msprop:Generator_UserColumnName="INVNUMBER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="OEINVHO1" msprop:Generator_TableClassName="OEINVHO1DataTable" msprop:Generator_TableVarName="tableOEINVHO1" msprop:Generator_RowChangedName="OEINVHO1RowChanged" msprop:Generator_TablePropName="OEINVHO1" msprop:Generator_RowDeletingName="OEINVHO1RowDeleting" msprop:Generator_RowChangingName="OEINVHO1RowChanging" msprop:Generator_RowEvHandlerName="OEINVHO1RowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHO1RowDeleted" msprop:Generator_RowClassName="OEINVHO1Row" msprop:Generator_UserTableName="OEINVHO1" msprop:Generator_RowEvArgName="OEINVHO1RowChangeEvent">
+        <xs:element name="OEINVHO1" msprop:Generator_TableClassName="OEINVHO1DataTable" msprop:Generator_TableVarName="tableOEINVHO1" msprop:Generator_TablePropName="OEINVHO1" msprop:Generator_RowDeletingName="OEINVHO1RowDeleting" msprop:Generator_RowChangingName="OEINVHO1RowChanging" msprop:Generator_RowEvHandlerName="OEINVHO1RowChangeEventHandler" msprop:Generator_RowDeletedName="OEINVHO1RowDeleted" msprop:Generator_UserTableName="OEINVHO1" msprop:Generator_RowChangedName="OEINVHO1RowChanged" msprop:Generator_RowEvArgName="OEINVHO1RowChangeEvent" msprop:Generator_RowClassName="OEINVHO1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="INVUNIQ" msprop:Generator_ColumnVarNameInTable="columnINVUNIQ" msprop:Generator_ColumnPropNameInRow="INVUNIQ" msprop:Generator_ColumnPropNameInTable="INVUNIQColumn" msprop:Generator_UserColumnName="INVUNIQ" type="xs:decimal" />

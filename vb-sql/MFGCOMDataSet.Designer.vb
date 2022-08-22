@@ -3908,6 +3908,8 @@ Partial Public Class MFGCOMDataSet
         
         Private columnSEND_INVOICE As Global.System.Data.DataColumn
         
+        Private columnINVNUMBER As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -3992,6 +3994,14 @@ Partial Public Class MFGCOMDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property INVNUMBERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVNUMBER
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4028,9 +4038,9 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddOEINVHORow(ByVal INVUNIQ As Decimal, ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal BILNAME As String, ByVal DESC As String, ByVal SEND_INVOICE As String) As OEINVHORow
+        Public Overloads Function AddOEINVHORow(ByVal INVUNIQ As Decimal, ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal BILNAME As String, ByVal DESC As String, ByVal SEND_INVOICE As String, ByVal INVNUMBER As String) As OEINVHORow
             Dim rowOEINVHORow As OEINVHORow = CType(Me.NewRow,OEINVHORow)
-            Dim columnValuesArray() As Object = New Object() {INVUNIQ, INVDATE, CUSTOMER, BILNAME, DESC, SEND_INVOICE}
+            Dim columnValuesArray() As Object = New Object() {INVUNIQ, INVDATE, CUSTOMER, BILNAME, DESC, SEND_INVOICE, INVNUMBER}
             rowOEINVHORow.ItemArray = columnValuesArray
             Me.Rows.Add(rowOEINVHORow)
             Return rowOEINVHORow
@@ -4065,6 +4075,7 @@ Partial Public Class MFGCOMDataSet
             Me.columnBILNAME = MyBase.Columns("BILNAME")
             Me.columnDESC = MyBase.Columns("DESC")
             Me.columnSEND_INVOICE = MyBase.Columns("SEND INVOICE")
+            Me.columnINVNUMBER = MyBase.Columns("INVNUMBER")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4082,6 +4093,8 @@ Partial Public Class MFGCOMDataSet
             MyBase.Columns.Add(Me.columnDESC)
             Me.columnSEND_INVOICE = New Global.System.Data.DataColumn("SEND INVOICE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSEND_INVOICE)
+            Me.columnINVNUMBER = New Global.System.Data.DataColumn("INVNUMBER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVNUMBER)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnINVUNIQ}, true))
             Me.columnINVUNIQ.AllowDBNull = false
             Me.columnINVUNIQ.Unique = true
@@ -4094,6 +4107,9 @@ Partial Public Class MFGCOMDataSet
             Me.columnDESC.MaxLength = 60
             Me.columnSEND_INVOICE.ReadOnly = true
             Me.columnSEND_INVOICE.MaxLength = 60
+            Me.columnINVNUMBER.AllowDBNull = false
+            Me.columnINVNUMBER.ReadOnly = true
+            Me.columnINVNUMBER.MaxLength = 22
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6965,6 +6981,17 @@ Partial Public Class MFGCOMDataSet
             End Get
             Set
                 Me(Me.tableOEINVHO.SEND_INVOICEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property INVNUMBER() As String
+            Get
+                Return CType(Me(Me.tableOEINVHO.INVNUMBERColumn),String)
+            End Get
+            Set
+                Me(Me.tableOEINVHO.INVNUMBERColumn) = value
             End Set
         End Property
         
@@ -12562,6 +12589,7 @@ Namespace MFGCOMDataSetTableAdapters
             tableMapping.ColumnMappings.Add("BILNAME", "BILNAME")
             tableMapping.ColumnMappings.Add("DESC", "DESC")
             tableMapping.ColumnMappings.Add("SEND INVOICE", "SEND INVOICE")
+            tableMapping.ColumnMappings.Add("INVNUMBER", "INVNUMBER")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -12575,21 +12603,28 @@ Namespace MFGCOMDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OE"& _ 
-                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OEIN"& _ 
-                "VH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVU"& _ 
-                "NIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')"
+                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            OEINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEINVHO ON OEINVH.INVU"& _ 
+                "NIQ = OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "UPDATE       OEINVHO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                VALUE = LTRIM(RTRIM(@sendInvoice))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E        (INVUNIQ = @invoiceID)"
+            Me._commandCollection(1).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OE"& _ 
+                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            OEINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEINVHO ON OEINVH.INVU"& _ 
+                "NIQ = OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SENDINVOICE')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@sendInvoice", Global.System.Data.SqlDbType.[Char], 60, Global.System.Data.ParameterDirection.Input, 0, 0, "VALUE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@invoiceID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 19, 0, "INVUNIQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "UPDATE       OEINVHO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                VALUE = LTRIM(RTRIM(@sendInvoice))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E        (INVUNIQ = @invoiceID)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@sendInvoice", Global.System.Data.SqlDbType.[Char], 60, Global.System.Data.ParameterDirection.Input, 0, 0, "VALUE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@invoiceID", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 19, 0, "INVUNIQ", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12619,9 +12654,22 @@ Namespace MFGCOMDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As MFGCOMDataSet.OEINVHODataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateInvoice(ByVal sendInvoice As String, ByVal invoiceID As Decimal) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             If (sendInvoice Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("sendInvoice")
             Else
