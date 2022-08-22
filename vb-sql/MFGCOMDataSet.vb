@@ -23,3 +23,8 @@ Namespace MFGCOMDataSetTableAdapters
     Partial Public Class OEINVHOTableAdapter
     End Class
 End Namespace
+
+Namespace MFGCOMDataSetTableAdapters
+    Partial Public Class OEINVHOTableAdapter
+    End Class
+End Namespace

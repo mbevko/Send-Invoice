@@ -3896,13 +3896,9 @@ Partial Public Class MFGCOMDataSet
     Partial Public Class OEINVHODataTable
         Inherits Global.System.Data.TypedTableBase(Of OEINVHORow)
         
-        Private columnINVUNIQ As Global.System.Data.DataColumn
-        
         Private columnINVDATE As Global.System.Data.DataColumn
         
         Private columnCUSTOMER As Global.System.Data.DataColumn
-        
-        Private columnBILNAME As Global.System.Data.DataColumn
         
         Private columnDESC As Global.System.Data.DataColumn
         
@@ -3911,6 +3907,14 @@ Partial Public Class MFGCOMDataSet
         Private columnINVNUMBER As Global.System.Data.DataColumn
         
         Private columnSEND As Global.System.Data.DataColumn
+        
+        Private columnExpr2 As Global.System.Data.DataColumn
+        
+        Private columnExpr1 As Global.System.Data.DataColumn
+        
+        Private columnINVUNIQ As Global.System.Data.DataColumn
+        
+        Private columnExpr3 As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -3949,14 +3953,6 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property INVUNIQColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnINVUNIQ
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property INVDATEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnINVDATE
@@ -3968,14 +3964,6 @@ Partial Public Class MFGCOMDataSet
         Public ReadOnly Property CUSTOMERColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCUSTOMER
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property BILNAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBILNAME
             End Get
         End Property
         
@@ -4008,6 +3996,38 @@ Partial Public Class MFGCOMDataSet
         Public ReadOnly Property SENDColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSEND
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Expr2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnExpr2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Expr1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnExpr1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property INVUNIQColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVUNIQ
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Expr3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnExpr3
             End Get
         End Property
         
@@ -4048,9 +4068,9 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddOEINVHORow(ByVal INVUNIQ As Decimal, ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal BILNAME As String, ByVal DESC As String, ByVal SEND_INVOICE As String, ByVal INVNUMBER As String, ByVal SEND As String) As OEINVHORow
+        Public Overloads Function AddOEINVHORow(ByVal INVDATE As Decimal, ByVal CUSTOMER As String, ByVal DESC As String, ByVal SEND_INVOICE As String, ByVal INVNUMBER As String, ByVal SEND As String, ByVal Expr2 As Decimal, ByVal Expr1 As String, ByVal INVUNIQ As Decimal, ByVal Expr3 As String) As OEINVHORow
             Dim rowOEINVHORow As OEINVHORow = CType(Me.NewRow,OEINVHORow)
-            Dim columnValuesArray() As Object = New Object() {INVUNIQ, INVDATE, CUSTOMER, BILNAME, DESC, SEND_INVOICE, INVNUMBER, SEND}
+            Dim columnValuesArray() As Object = New Object() {INVDATE, CUSTOMER, DESC, SEND_INVOICE, INVNUMBER, SEND, Expr2, Expr1, INVUNIQ, Expr3}
             rowOEINVHORow.ItemArray = columnValuesArray
             Me.Rows.Add(rowOEINVHORow)
             Return rowOEINVHORow
@@ -4058,8 +4078,8 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByINVUNIQ(ByVal INVUNIQ As Decimal) As OEINVHORow
-            Return CType(Me.Rows.Find(New Object() {INVUNIQ}),OEINVHORow)
+        Public Function FindByExpr2(ByVal Expr2 As Decimal) As OEINVHORow
+            Return CType(Me.Rows.Find(New Object() {Expr2}),OEINVHORow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4079,27 +4099,25 @@ Partial Public Class MFGCOMDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnINVUNIQ = MyBase.Columns("INVUNIQ")
             Me.columnINVDATE = MyBase.Columns("INVDATE")
             Me.columnCUSTOMER = MyBase.Columns("CUSTOMER")
-            Me.columnBILNAME = MyBase.Columns("BILNAME")
             Me.columnDESC = MyBase.Columns("DESC")
             Me.columnSEND_INVOICE = MyBase.Columns("SEND INVOICE")
             Me.columnINVNUMBER = MyBase.Columns("INVNUMBER")
             Me.columnSEND = MyBase.Columns("SEND")
+            Me.columnExpr2 = MyBase.Columns("Expr2")
+            Me.columnExpr1 = MyBase.Columns("Expr1")
+            Me.columnINVUNIQ = MyBase.Columns("INVUNIQ")
+            Me.columnExpr3 = MyBase.Columns("Expr3")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnINVUNIQ = New Global.System.Data.DataColumn("INVUNIQ", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnINVUNIQ)
             Me.columnINVDATE = New Global.System.Data.DataColumn("INVDATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnINVDATE)
             Me.columnCUSTOMER = New Global.System.Data.DataColumn("CUSTOMER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCUSTOMER)
-            Me.columnBILNAME = New Global.System.Data.DataColumn("BILNAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBILNAME)
             Me.columnDESC = New Global.System.Data.DataColumn("DESC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESC)
             Me.columnSEND_INVOICE = New Global.System.Data.DataColumn("SEND INVOICE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -4108,14 +4126,18 @@ Partial Public Class MFGCOMDataSet
             MyBase.Columns.Add(Me.columnINVNUMBER)
             Me.columnSEND = New Global.System.Data.DataColumn("SEND", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSEND)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnINVUNIQ}, true))
-            Me.columnINVUNIQ.AllowDBNull = false
-            Me.columnINVUNIQ.Unique = true
+            Me.columnExpr2 = New Global.System.Data.DataColumn("Expr2", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpr2)
+            Me.columnExpr1 = New Global.System.Data.DataColumn("Expr1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpr1)
+            Me.columnINVUNIQ = New Global.System.Data.DataColumn("INVUNIQ", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVUNIQ)
+            Me.columnExpr3 = New Global.System.Data.DataColumn("Expr3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpr3)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnExpr2}, true))
             Me.columnINVDATE.AllowDBNull = false
             Me.columnCUSTOMER.AllowDBNull = false
             Me.columnCUSTOMER.MaxLength = 12
-            Me.columnBILNAME.AllowDBNull = false
-            Me.columnBILNAME.MaxLength = 60
             Me.columnDESC.AllowDBNull = false
             Me.columnDESC.MaxLength = 60
             Me.columnSEND_INVOICE.ReadOnly = true
@@ -4125,6 +4147,13 @@ Partial Public Class MFGCOMDataSet
             Me.columnINVNUMBER.MaxLength = 22
             Me.columnSEND.ReadOnly = true
             Me.columnSEND.MaxLength = 3
+            Me.columnExpr2.AllowDBNull = false
+            Me.columnExpr2.Unique = true
+            Me.columnExpr1.ReadOnly = true
+            Me.columnExpr1.MaxLength = 10
+            Me.columnINVUNIQ.AllowDBNull = false
+            Me.columnExpr3.ReadOnly = true
+            Me.columnExpr3.MaxLength = 60
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6931,17 +6960,6 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property INVUNIQ() As Decimal
-            Get
-                Return CType(Me(Me.tableOEINVHO.INVUNIQColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableOEINVHO.INVUNIQColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property INVDATE() As Decimal
             Get
                 Return CType(Me(Me.tableOEINVHO.INVDATEColumn),Decimal)
@@ -6959,17 +6977,6 @@ Partial Public Class MFGCOMDataSet
             End Get
             Set
                 Me(Me.tableOEINVHO.CUSTOMERColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property BILNAME() As String
-            Get
-                Return CType(Me(Me.tableOEINVHO.BILNAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableOEINVHO.BILNAMEColumn) = value
             End Set
         End Property
         
@@ -7027,6 +7034,58 @@ Partial Public Class MFGCOMDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Expr2() As Decimal
+            Get
+                Return CType(Me(Me.tableOEINVHO.Expr2Column),Decimal)
+            End Get
+            Set
+                Me(Me.tableOEINVHO.Expr2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Expr1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableOEINVHO.Expr1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Expr1' in table 'OEINVHO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableOEINVHO.Expr1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property INVUNIQ() As Decimal
+            Get
+                Return CType(Me(Me.tableOEINVHO.INVUNIQColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableOEINVHO.INVUNIQColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Expr3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableOEINVHO.Expr3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Expr3' in table 'OEINVHO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableOEINVHO.Expr3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsSEND_INVOICENull() As Boolean
             Return Me.IsNull(Me.tableOEINVHO.SEND_INVOICEColumn)
         End Function
@@ -7047,6 +7106,30 @@ Partial Public Class MFGCOMDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetSENDNull()
             Me(Me.tableOEINVHO.SENDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsExpr1Null() As Boolean
+            Return Me.IsNull(Me.tableOEINVHO.Expr1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetExpr1Null()
+            Me(Me.tableOEINVHO.Expr1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsExpr3Null() As Boolean
+            Return Me.IsNull(Me.tableOEINVHO.Expr3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetExpr3Null()
+            Me(Me.tableOEINVHO.Expr3Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12625,14 +12708,16 @@ Namespace MFGCOMDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "OEINVHO"
-            tableMapping.ColumnMappings.Add("INVUNIQ", "INVUNIQ")
             tableMapping.ColumnMappings.Add("INVDATE", "INVDATE")
             tableMapping.ColumnMappings.Add("CUSTOMER", "CUSTOMER")
-            tableMapping.ColumnMappings.Add("BILNAME", "BILNAME")
             tableMapping.ColumnMappings.Add("DESC", "DESC")
             tableMapping.ColumnMappings.Add("SEND INVOICE", "SEND INVOICE")
             tableMapping.ColumnMappings.Add("INVNUMBER", "INVNUMBER")
             tableMapping.ColumnMappings.Add("SEND", "SEND")
+            tableMapping.ColumnMappings.Add("Expr2", "Expr2")
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1")
+            tableMapping.ColumnMappings.Add("INVUNIQ", "INVUNIQ")
+            tableMapping.ColumnMappings.Add("Expr3", "Expr3")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -12649,21 +12734,22 @@ Namespace MFGCOMDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OE"& _ 
-                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER, CA"& _ 
-                "SE WHEN LTRIM(RTRIM([VALUE])) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         = '1' THEN 'YES' ELSE '"& _ 
-                "NO' END AS SEND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OEINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEI"& _ 
-                "NVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SEND"& _ 
-                "INVOICE')"
+            Me._commandCollection(0).CommandText = "SELECT        OEINVH.INVUNIQ AS Expr2, OEINVH.INVDATE, OEINVH.CUSTOMER, LTRIM(RTR"& _ 
+                "IM(OEINVH.BILNAME)) AS Expr3, OEINVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEN"& _ 
+                "D INVOICE], OEINVH.INVNUMBER, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CASE WHEN LTRIM(RTRIM(["& _ 
+                "VALUE])) = '1' THEN 'YES' ELSE 'NO' END AS SEND, SUBSTRING(CONVERT(CHAR, OEINVH."& _ 
+                "INVDATE), 5, 2) + '/' + SUBSTRING(CONVERT(CHAR, OEINVH.INVDATE), 7, 2) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  + '/' + SUBSTRING(CONVERT(CHAR, OEINVH.INVDATE), 1, 4) AS Expr"& _ 
+                "1, OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OEINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "OEINVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'S"& _ 
+                "ENDINVOICE')"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        OEINVH.INVUNIQ, OEINVH.INVDATE, OEINVH.CUSTOMER, OEINVH.BILNAME, OE"& _ 
-                "INVH.[DESC], LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE], OEINVH.INVNUMBER, CA"& _ 
-                "SE WHEN LTRIM(RTRIM([VALUE])) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         = '1' THEN 'YES' ELSE '"& _ 
-                "NO' END AS SEND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OEINVH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         OEI"& _ 
-                "NVHO ON OEINVH.INVUNIQ = OEINVHO.INVUNIQ"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OEINVHO.OPTFIELD = 'SEND"& _ 
-                "INVOICE')"
+            Me._commandCollection(1).CommandText = "SELECT OEINVH.BILNAME, OEINVH.CUSTOMER, OEINVH.[DESC], OEINVH.INVDATE, OEINVH.INV"& _ 
+                "NUMBER, CASE WHEN LTRIM(RTRIM([VALUE])) = '1' THEN 'YES' ELSE 'NO' END AS SEND, "& _ 
+                "LTRIM(RTRIM(OEINVHO.VALUE)) AS [SEND INVOICE] FROM OEINVH INNER JOIN OEINVHO ON "& _ 
+                "OEINVH.INVUNIQ = OEINVHO.INVUNIQ WHERE (OEINVHO.OPTFIELD = 'SENDINVOICE')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection

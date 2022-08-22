@@ -24,13 +24,9 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim INVUNIQLabel As System.Windows.Forms.Label
-        Dim INVDATELabel As System.Windows.Forms.Label
-        Dim CUSTOMERLabel As System.Windows.Forms.Label
-        Dim BILNAMELabel As System.Windows.Forms.Label
-        Dim DESCLabel As System.Windows.Forms.Label
         Dim SEND_INVOICELabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Dim SENDLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.OEINVHOBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.OEINVHOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MFGCOMDataSet = New vb_sql.MFGCOMDataSet()
@@ -45,10 +41,6 @@ Partial Class Form2
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.INVUNIQLabel1 = New System.Windows.Forms.Label()
-        Me.INVDATELabel1 = New System.Windows.Forms.Label()
-        Me.CUSTOMERLabel1 = New System.Windows.Forms.Label()
-        Me.BILNAMELabel1 = New System.Windows.Forms.Label()
-        Me.DESCLabel1 = New System.Windows.Forms.Label()
         Me.SEND_INVOICELabel1 = New System.Windows.Forms.Label()
         Me.OEINVHOTableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHOTableAdapter()
         Me.TableAdapterManager = New vb_sql.MFGCOMDataSetTableAdapters.TableAdapterManager()
@@ -56,20 +48,16 @@ Partial Class Form2
         Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
         Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
-        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
-        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Expr3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SEND = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Expr1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
+        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         INVUNIQLabel = New System.Windows.Forms.Label()
-        INVDATELabel = New System.Windows.Forms.Label()
-        CUSTOMERLabel = New System.Windows.Forms.Label()
-        BILNAMELabel = New System.Windows.Forms.Label()
-        DESCLabel = New System.Windows.Forms.Label()
         SEND_INVOICELabel = New System.Windows.Forms.Label()
         SENDLabel = New System.Windows.Forms.Label()
         CType(Me.OEINVHOBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,63 +68,36 @@ Partial Class Form2
         CType(Me.MFGCOMDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OEINVHOBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OEINVHODataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OEINVHOBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OEINVHO1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OEINVHOBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'INVUNIQLabel
         '
         INVUNIQLabel.AutoSize = True
-        INVUNIQLabel.Location = New System.Drawing.Point(237, 158)
+        INVUNIQLabel.Location = New System.Drawing.Point(239, 158)
         INVUNIQLabel.Name = "INVUNIQLabel"
         INVUNIQLabel.Size = New System.Drawing.Size(55, 13)
         INVUNIQLabel.TabIndex = 3
         INVUNIQLabel.Text = "INVUNIQ:"
         '
-        'INVDATELabel
-        '
-        INVDATELabel.AutoSize = True
-        INVDATELabel.Location = New System.Drawing.Point(237, 181)
-        INVDATELabel.Name = "INVDATELabel"
-        INVDATELabel.Size = New System.Drawing.Size(57, 13)
-        INVDATELabel.TabIndex = 5
-        INVDATELabel.Text = "INVDATE:"
-        '
-        'CUSTOMERLabel
-        '
-        CUSTOMERLabel.AutoSize = True
-        CUSTOMERLabel.Location = New System.Drawing.Point(237, 204)
-        CUSTOMERLabel.Name = "CUSTOMERLabel"
-        CUSTOMERLabel.Size = New System.Drawing.Size(71, 13)
-        CUSTOMERLabel.TabIndex = 7
-        CUSTOMERLabel.Text = "CUSTOMER:"
-        '
-        'BILNAMELabel
-        '
-        BILNAMELabel.AutoSize = True
-        BILNAMELabel.Location = New System.Drawing.Point(237, 227)
-        BILNAMELabel.Name = "BILNAMELabel"
-        BILNAMELabel.Size = New System.Drawing.Size(57, 13)
-        BILNAMELabel.TabIndex = 9
-        BILNAMELabel.Text = "BILNAME:"
-        '
-        'DESCLabel
-        '
-        DESCLabel.AutoSize = True
-        DESCLabel.Location = New System.Drawing.Point(237, 250)
-        DESCLabel.Name = "DESCLabel"
-        DESCLabel.Size = New System.Drawing.Size(39, 13)
-        DESCLabel.TabIndex = 11
-        DESCLabel.Text = "DESC:"
-        '
         'SEND_INVOICELabel
         '
         SEND_INVOICELabel.AutoSize = True
-        SEND_INVOICELabel.Location = New System.Drawing.Point(237, 273)
+        SEND_INVOICELabel.Location = New System.Drawing.Point(239, 184)
         SEND_INVOICELabel.Name = "SEND_INVOICELabel"
         SEND_INVOICELabel.Size = New System.Drawing.Size(86, 13)
         SEND_INVOICELabel.TabIndex = 13
         SEND_INVOICELabel.Text = "SEND INVOICE:"
+        '
+        'SENDLabel
+        '
+        SENDLabel.AutoSize = True
+        SENDLabel.Location = New System.Drawing.Point(285, 105)
+        SENDLabel.Name = "SENDLabel"
+        SENDLabel.Size = New System.Drawing.Size(40, 13)
+        SENDLabel.TabIndex = 14
+        SENDLabel.Text = "SEND:"
         '
         'OEINVHOBindingNavigator
         '
@@ -152,7 +113,7 @@ Partial Class Form2
         Me.OEINVHOBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.OEINVHOBindingNavigator.Name = "OEINVHOBindingNavigator"
         Me.OEINVHOBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.OEINVHOBindingNavigator.Size = New System.Drawing.Size(879, 25)
+        Me.OEINVHOBindingNavigator.Size = New System.Drawing.Size(899, 25)
         Me.OEINVHOBindingNavigator.TabIndex = 3
         Me.OEINVHOBindingNavigator.Text = "BindingNavigator1"
         '
@@ -245,52 +206,16 @@ Partial Class Form2
         'INVUNIQLabel1
         '
         Me.INVUNIQLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "INVUNIQ", True))
-        Me.INVUNIQLabel1.Location = New System.Drawing.Point(329, 158)
+        Me.INVUNIQLabel1.Location = New System.Drawing.Point(331, 158)
         Me.INVUNIQLabel1.Name = "INVUNIQLabel1"
         Me.INVUNIQLabel1.Size = New System.Drawing.Size(100, 23)
         Me.INVUNIQLabel1.TabIndex = 4
         Me.INVUNIQLabel1.Text = "Label1"
         '
-        'INVDATELabel1
-        '
-        Me.INVDATELabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "INVDATE", True))
-        Me.INVDATELabel1.Location = New System.Drawing.Point(329, 181)
-        Me.INVDATELabel1.Name = "INVDATELabel1"
-        Me.INVDATELabel1.Size = New System.Drawing.Size(100, 23)
-        Me.INVDATELabel1.TabIndex = 6
-        Me.INVDATELabel1.Text = "Label1"
-        '
-        'CUSTOMERLabel1
-        '
-        Me.CUSTOMERLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "CUSTOMER", True))
-        Me.CUSTOMERLabel1.Location = New System.Drawing.Point(329, 204)
-        Me.CUSTOMERLabel1.Name = "CUSTOMERLabel1"
-        Me.CUSTOMERLabel1.Size = New System.Drawing.Size(100, 23)
-        Me.CUSTOMERLabel1.TabIndex = 8
-        Me.CUSTOMERLabel1.Text = "Label1"
-        '
-        'BILNAMELabel1
-        '
-        Me.BILNAMELabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "BILNAME", True))
-        Me.BILNAMELabel1.Location = New System.Drawing.Point(329, 227)
-        Me.BILNAMELabel1.Name = "BILNAMELabel1"
-        Me.BILNAMELabel1.Size = New System.Drawing.Size(100, 23)
-        Me.BILNAMELabel1.TabIndex = 10
-        Me.BILNAMELabel1.Text = "Label1"
-        '
-        'DESCLabel1
-        '
-        Me.DESCLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "DESC", True))
-        Me.DESCLabel1.Location = New System.Drawing.Point(329, 250)
-        Me.DESCLabel1.Name = "DESCLabel1"
-        Me.DESCLabel1.Size = New System.Drawing.Size(100, 23)
-        Me.DESCLabel1.TabIndex = 12
-        Me.DESCLabel1.Text = "Label1"
-        '
         'SEND_INVOICELabel1
         '
         Me.SEND_INVOICELabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND INVOICE", True))
-        Me.SEND_INVOICELabel1.Location = New System.Drawing.Point(329, 273)
+        Me.SEND_INVOICELabel1.Location = New System.Drawing.Point(331, 184)
         Me.SEND_INVOICELabel1.Name = "SEND_INVOICELabel1"
         Me.SEND_INVOICELabel1.Size = New System.Drawing.Size(100, 23)
         Me.SEND_INVOICELabel1.TabIndex = 14
@@ -330,21 +255,48 @@ Partial Class Form2
         Me.OEINVHODataGridView.AutoGenerateColumns = False
         Me.OEINVHODataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.OEINVHODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.INVNUMBER, Me.DataGridViewTextBoxColumn2, Me.SEND})
+        Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.Expr3, Me.INVNUMBER, Me.Expr1, Me.SEND})
         Me.OEINVHODataGridView.DataSource = Me.OEINVHOBindingSource
-        Me.OEINVHODataGridView.Location = New System.Drawing.Point(-7, 314)
+        Me.OEINVHODataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.OEINVHODataGridView.Location = New System.Drawing.Point(0, 25)
         Me.OEINVHODataGridView.Name = "OEINVHODataGridView"
-        Me.OEINVHODataGridView.Size = New System.Drawing.Size(866, 175)
+        Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 484)
         Me.OEINVHODataGridView.TabIndex = 14
         '
-        'SENDLabel
+        'DataGridViewTextBoxColumn3
         '
-        SENDLabel.AutoSize = True
-        SENDLabel.Location = New System.Drawing.Point(285, 105)
-        SENDLabel.Name = "SENDLabel"
-        SENDLabel.Size = New System.Drawing.Size(40, 13)
-        SENDLabel.TabIndex = 14
-        SENDLabel.Text = "SEND:"
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'Expr3
+        '
+        Me.Expr3.DataPropertyName = "Expr3"
+        Me.Expr3.HeaderText = "CUSTOMER NAME"
+        Me.Expr3.Name = "Expr3"
+        Me.Expr3.ReadOnly = True
+        '
+        'INVNUMBER
+        '
+        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
+        Me.INVNUMBER.HeaderText = "INVNUMBER"
+        Me.INVNUMBER.Name = "INVNUMBER"
+        Me.INVNUMBER.ReadOnly = True
+        '
+        'Expr1
+        '
+        Me.Expr1.DataPropertyName = "Expr1"
+        Me.Expr1.HeaderText = "DATE"
+        Me.Expr1.Name = "Expr1"
+        Me.Expr1.ReadOnly = True
+        '
+        'SEND
+        '
+        Me.SEND.DataPropertyName = "SEND"
+        Me.SEND.HeaderText = "SEND"
+        Me.SEND.Name = "SEND"
+        Me.SEND.ReadOnly = True
+        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'SENDComboBox
         '
@@ -359,74 +311,31 @@ Partial Class Form2
         Me.SENDComboBox.TabIndex = 15
         Me.SENDComboBox.ValueMember = "SEND INVOICE"
         '
-        'OEINVHOBindingSource2
-        '
-        Me.OEINVHOBindingSource2.DataMember = "OEINVHO"
-        Me.OEINVHOBindingSource2.DataSource = Me.MFGCOMDataSet
-        '
         'OEINVHO1BindingSource
         '
         Me.OEINVHO1BindingSource.DataMember = "OEINVHO1"
         Me.OEINVHO1BindingSource.DataSource = Me.MFGCOMDataSet
         '
+        'OEINVHOBindingSource2
+        '
+        Me.OEINVHOBindingSource2.DataMember = "OEINVHO"
+        Me.OEINVHOBindingSource2.DataSource = Me.MFGCOMDataSet
+        '
         'OEINVHO1TableAdapter
         '
         Me.OEINVHO1TableAdapter.ClearBeforeFill = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "BILNAME"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "BILNAME"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'INVNUMBER
-        '
-        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
-        Me.INVNUMBER.HeaderText = "INVNUMBER"
-        Me.INVNUMBER.Name = "INVNUMBER"
-        Me.INVNUMBER.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "INVDATE"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "INVDATE"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'SEND
-        '
-        Me.SEND.DataPropertyName = "SEND"
-        Me.SEND.HeaderText = "SEND"
-        Me.SEND.Items.AddRange(New Object() {"YES", "NO"})
-        Me.SEND.Name = "SEND"
-        Me.SEND.ReadOnly = True
-        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(879, 509)
+        Me.ClientSize = New System.Drawing.Size(899, 509)
+        Me.Controls.Add(Me.OEINVHODataGridView)
         Me.Controls.Add(SENDLabel)
         Me.Controls.Add(Me.SENDComboBox)
-        Me.Controls.Add(Me.OEINVHODataGridView)
         Me.Controls.Add(INVUNIQLabel)
         Me.Controls.Add(Me.INVUNIQLabel1)
-        Me.Controls.Add(INVDATELabel)
-        Me.Controls.Add(Me.INVDATELabel1)
-        Me.Controls.Add(CUSTOMERLabel)
-        Me.Controls.Add(Me.CUSTOMERLabel1)
-        Me.Controls.Add(BILNAMELabel)
-        Me.Controls.Add(Me.BILNAMELabel1)
-        Me.Controls.Add(DESCLabel)
-        Me.Controls.Add(Me.DESCLabel1)
         Me.Controls.Add(SEND_INVOICELabel)
         Me.Controls.Add(Me.SEND_INVOICELabel1)
         Me.Controls.Add(Me.OEINVHOBindingNavigator)
@@ -443,8 +352,8 @@ Partial Class Form2
         CType(Me.MFGCOMDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OEINVHOBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OEINVHODataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OEINVHOBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OEINVHO1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OEINVHOBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -466,10 +375,6 @@ Partial Class Form2
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents INVUNIQLabel1 As Label
-    Friend WithEvents INVDATELabel1 As Label
-    Friend WithEvents CUSTOMERLabel1 As Label
-    Friend WithEvents BILNAMELabel1 As Label
-    Friend WithEvents DESCLabel1 As Label
     Friend WithEvents SEND_INVOICELabel1 As Label
     Friend WithEvents MFGCOMDataSet1 As MFGCOMDataSet
     Friend WithEvents MFGCOMDataSet2 As MFGCOMDataSet
@@ -480,8 +385,8 @@ Partial Class Form2
     Friend WithEvents OEINVHO1BindingSource As BindingSource
     Friend WithEvents OEINVHO1TableAdapter As MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents Expr3 As DataGridViewTextBoxColumn
     Friend WithEvents INVNUMBER As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents SEND As DataGridViewComboBoxColumn
+    Friend WithEvents Expr1 As DataGridViewTextBoxColumn
+    Friend WithEvents SEND As DataGridViewTextBoxColumn
 End Class
