@@ -1,5 +1,7 @@
 ﻿Public Class Form2
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'MFGCOMDataSet.OEINVHO1' table. You can move, or remove it, as needed.
+        Me.OEINVHO1TableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO1)
         'TODO: This line of code loads data into the 'MFGCOMDataSet2.OEINVHO' table. You can move, or remove it, as needed.
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet2.OEINVHO)
         'TODO: This line of code loads data into the 'MFGCOMDataSet.OEINVHO' table. You can move, or remove it, as needed.
@@ -64,6 +66,7 @@
         result = Me.OEINVHOTableAdapter.UpdateInvoice(new_sendInvoice, INVUNIQLabel1.Text)
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO)
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet1.OEINVHO)
+        InputBox("test")
 
     End Sub
 
