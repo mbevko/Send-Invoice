@@ -49,14 +49,17 @@ Partial Class Form2
         Me.BILNAMELabel1 = New System.Windows.Forms.Label()
         Me.DESCLabel1 = New System.Windows.Forms.Label()
         Me.SEND_INVOICELabel1 = New System.Windows.Forms.Label()
-        Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
         Me.OEINVHOTableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHOTableAdapter()
         Me.TableAdapterManager = New vb_sql.MFGCOMDataSetTableAdapters.TableAdapterManager()
+        Me.MFGCOMDataSet1 = New vb_sql.MFGCOMDataSet()
+        Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
+        Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
         INVUNIQLabel = New System.Windows.Forms.Label()
         INVDATELabel = New System.Windows.Forms.Label()
         CUSTOMERLabel = New System.Windows.Forms.Label()
@@ -67,6 +70,9 @@ Partial Class Form2
         Me.OEINVHOBindingNavigator.SuspendLayout()
         CType(Me.OEINVHOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MFGCOMDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MFGCOMDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MFGCOMDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OEINVHOBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OEINVHODataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -282,21 +288,6 @@ Partial Class Form2
         Me.SEND_INVOICELabel1.TabIndex = 14
         Me.SEND_INVOICELabel1.Text = "Label1"
         '
-        'OEINVHODataGridView
-        '
-        Me.OEINVHODataGridView.AllowUserToAddRows = False
-        Me.OEINVHODataGridView.AllowUserToDeleteRows = False
-        Me.OEINVHODataGridView.AutoGenerateColumns = False
-        Me.OEINVHODataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.OEINVHODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.INVNUMBER, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn7})
-        Me.OEINVHODataGridView.DataSource = Me.OEINVHOBindingSource
-        Me.OEINVHODataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OEINVHODataGridView.Location = New System.Drawing.Point(0, 25)
-        Me.OEINVHODataGridView.Name = "OEINVHODataGridView"
-        Me.OEINVHODataGridView.Size = New System.Drawing.Size(866, 463)
-        Me.OEINVHODataGridView.TabIndex = 14
-        '
         'OEINVHOTableAdapter
         '
         Me.OEINVHOTableAdapter.ClearBeforeFill = True
@@ -308,6 +299,36 @@ Partial Class Form2
         Me.TableAdapterManager.OEINVHO1TableAdapter = Nothing
         Me.TableAdapterManager.OEINVHTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = vb_sql.MFGCOMDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'MFGCOMDataSet1
+        '
+        Me.MFGCOMDataSet1.DataSetName = "MFGCOMDataSet"
+        Me.MFGCOMDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MFGCOMDataSet2
+        '
+        Me.MFGCOMDataSet2.DataSetName = "MFGCOMDataSet"
+        Me.MFGCOMDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'OEINVHOBindingSource1
+        '
+        Me.OEINVHOBindingSource1.DataMember = "OEINVHO"
+        Me.OEINVHOBindingSource1.DataSource = Me.MFGCOMDataSet2
+        '
+        'OEINVHODataGridView
+        '
+        Me.OEINVHODataGridView.AllowUserToAddRows = False
+        Me.OEINVHODataGridView.AllowUserToDeleteRows = False
+        Me.OEINVHODataGridView.AutoGenerateColumns = False
+        Me.OEINVHODataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.OEINVHODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.INVNUMBER, Me.DataGridViewTextBoxColumn2, Me.SEND})
+        Me.OEINVHODataGridView.DataSource = Me.OEINVHOBindingSource
+        Me.OEINVHODataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.OEINVHODataGridView.Location = New System.Drawing.Point(0, 25)
+        Me.OEINVHODataGridView.Name = "OEINVHODataGridView"
+        Me.OEINVHODataGridView.Size = New System.Drawing.Size(866, 463)
+        Me.OEINVHODataGridView.TabIndex = 14
         '
         'DataGridViewTextBoxColumn3
         '
@@ -334,12 +355,12 @@ Partial Class Form2
         Me.DataGridViewTextBoxColumn2.HeaderText = "INVDATE"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
-        'DataGridViewTextBoxColumn7
+        'SEND
         '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "SEND INVOICE"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "SEND INVOICE"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.SEND.DataPropertyName = "SEND"
+        Me.SEND.HeaderText = "SEND"
+        Me.SEND.Name = "SEND"
+        Me.SEND.ReadOnly = True
         '
         'Form2
         '
@@ -370,6 +391,9 @@ Partial Class Form2
         Me.OEINVHOBindingNavigator.PerformLayout()
         CType(Me.OEINVHOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MFGCOMDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MFGCOMDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MFGCOMDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OEINVHOBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OEINVHODataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -397,10 +421,13 @@ Partial Class Form2
     Friend WithEvents BILNAMELabel1 As Label
     Friend WithEvents DESCLabel1 As Label
     Friend WithEvents SEND_INVOICELabel1 As Label
+    Friend WithEvents MFGCOMDataSet1 As MFGCOMDataSet
+    Friend WithEvents MFGCOMDataSet2 As MFGCOMDataSet
+    Friend WithEvents OEINVHOBindingSource1 As BindingSource
     Friend WithEvents OEINVHODataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents INVNUMBER As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents SEND As DataGridViewTextBoxColumn
 End Class
