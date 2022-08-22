@@ -48,15 +48,15 @@ Partial Class Form2
         Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
         Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
+        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
+        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
-        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         INVUNIQLabel = New System.Windows.Forms.Label()
         SEND_INVOICELabel = New System.Windows.Forms.Label()
         SENDLabel = New System.Windows.Forms.Label()
@@ -263,41 +263,6 @@ Partial Class Form2
         Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 484)
         Me.OEINVHODataGridView.TabIndex = 14
         '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'Expr3
-        '
-        Me.Expr3.DataPropertyName = "Expr3"
-        Me.Expr3.HeaderText = "CUSTOMER NAME"
-        Me.Expr3.Name = "Expr3"
-        Me.Expr3.ReadOnly = True
-        '
-        'INVNUMBER
-        '
-        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
-        Me.INVNUMBER.HeaderText = "INVNUMBER"
-        Me.INVNUMBER.Name = "INVNUMBER"
-        Me.INVNUMBER.ReadOnly = True
-        '
-        'Expr1
-        '
-        Me.Expr1.DataPropertyName = "Expr1"
-        Me.Expr1.HeaderText = "DATE"
-        Me.Expr1.Name = "Expr1"
-        Me.Expr1.ReadOnly = True
-        '
-        'SEND
-        '
-        Me.SEND.DataPropertyName = "SEND"
-        Me.SEND.HeaderText = "SEND"
-        Me.SEND.Name = "SEND"
-        Me.SEND.ReadOnly = True
-        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
         'SENDComboBox
         '
         Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND", True))
@@ -324,6 +289,45 @@ Partial Class Form2
         'OEINVHO1TableAdapter
         '
         Me.OEINVHO1TableAdapter.ClearBeforeFill = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Expr3
+        '
+        Me.Expr3.DataPropertyName = "Expr3"
+        Me.Expr3.HeaderText = "CUSTOMER NAME"
+        Me.Expr3.Name = "Expr3"
+        Me.Expr3.ReadOnly = True
+        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'INVNUMBER
+        '
+        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
+        Me.INVNUMBER.HeaderText = "INVNUMBER"
+        Me.INVNUMBER.Name = "INVNUMBER"
+        Me.INVNUMBER.ReadOnly = True
+        '
+        'Expr1
+        '
+        Me.Expr1.DataPropertyName = "Expr1"
+        Me.Expr1.HeaderText = "DATE"
+        Me.Expr1.Name = "Expr1"
+        Me.Expr1.ReadOnly = True
+        Me.Expr1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'SEND
+        '
+        Me.SEND.DataPropertyName = "SEND"
+        Me.SEND.HeaderText = "SEND"
+        Me.SEND.Name = "SEND"
+        Me.SEND.ReadOnly = True
+        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         '
         'Form2
         '

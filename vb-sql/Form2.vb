@@ -44,6 +44,8 @@
 
         Dim result As Integer
 
+
+
         result = Me.OEINVHOTableAdapter.UpdateInvoice(new_sendInvoice, INVUNIQLabel1.Text)
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO)
 
@@ -80,6 +82,5 @@
         End Try
 
     End Sub
-
 
 End Class
