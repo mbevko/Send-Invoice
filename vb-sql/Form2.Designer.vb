@@ -48,15 +48,15 @@ Partial Class Form2
         Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
         Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
-        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
-        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
+        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         INVUNIQLabel = New System.Windows.Forms.Label()
         SEND_INVOICELabel = New System.Windows.Forms.Label()
         SENDLabel = New System.Windows.Forms.Label()
@@ -75,7 +75,7 @@ Partial Class Form2
         'INVUNIQLabel
         '
         INVUNIQLabel.AutoSize = True
-        INVUNIQLabel.Location = New System.Drawing.Point(239, 158)
+        INVUNIQLabel.Location = New System.Drawing.Point(382, 206)
         INVUNIQLabel.Name = "INVUNIQLabel"
         INVUNIQLabel.Size = New System.Drawing.Size(55, 13)
         INVUNIQLabel.TabIndex = 3
@@ -84,7 +84,7 @@ Partial Class Form2
         'SEND_INVOICELabel
         '
         SEND_INVOICELabel.AutoSize = True
-        SEND_INVOICELabel.Location = New System.Drawing.Point(239, 184)
+        SEND_INVOICELabel.Location = New System.Drawing.Point(382, 232)
         SEND_INVOICELabel.Name = "SEND_INVOICELabel"
         SEND_INVOICELabel.Size = New System.Drawing.Size(86, 13)
         SEND_INVOICELabel.TabIndex = 13
@@ -93,7 +93,7 @@ Partial Class Form2
         'SENDLabel
         '
         SENDLabel.AutoSize = True
-        SENDLabel.Location = New System.Drawing.Point(285, 105)
+        SENDLabel.Location = New System.Drawing.Point(428, 153)
         SENDLabel.Name = "SENDLabel"
         SENDLabel.Size = New System.Drawing.Size(40, 13)
         SENDLabel.TabIndex = 14
@@ -206,7 +206,7 @@ Partial Class Form2
         'INVUNIQLabel1
         '
         Me.INVUNIQLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "INVUNIQ", True))
-        Me.INVUNIQLabel1.Location = New System.Drawing.Point(331, 158)
+        Me.INVUNIQLabel1.Location = New System.Drawing.Point(474, 206)
         Me.INVUNIQLabel1.Name = "INVUNIQLabel1"
         Me.INVUNIQLabel1.Size = New System.Drawing.Size(100, 23)
         Me.INVUNIQLabel1.TabIndex = 4
@@ -215,7 +215,7 @@ Partial Class Form2
         'SEND_INVOICELabel1
         '
         Me.SEND_INVOICELabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND INVOICE", True))
-        Me.SEND_INVOICELabel1.Location = New System.Drawing.Point(331, 184)
+        Me.SEND_INVOICELabel1.Location = New System.Drawing.Point(474, 232)
         Me.SEND_INVOICELabel1.Name = "SEND_INVOICELabel1"
         Me.SEND_INVOICELabel1.Size = New System.Drawing.Size(100, 23)
         Me.SEND_INVOICELabel1.TabIndex = 14
@@ -253,7 +253,6 @@ Partial Class Form2
         Me.OEINVHODataGridView.AllowUserToAddRows = False
         Me.OEINVHODataGridView.AllowUserToDeleteRows = False
         Me.OEINVHODataGridView.AutoGenerateColumns = False
-        Me.OEINVHODataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.OEINVHODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.Expr3, Me.INVNUMBER, Me.Expr1, Me.SEND})
         Me.OEINVHODataGridView.DataSource = Me.OEINVHOBindingSource
@@ -263,6 +262,50 @@ Partial Class Form2
         Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 484)
         Me.OEINVHODataGridView.TabIndex = 14
         '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn3.Width = 171
+        '
+        'Expr3
+        '
+        Me.Expr3.DataPropertyName = "Expr3"
+        Me.Expr3.HeaderText = "CUSTOMER NAME"
+        Me.Expr3.Name = "Expr3"
+        Me.Expr3.ReadOnly = True
+        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Expr3.Width = 171
+        '
+        'INVNUMBER
+        '
+        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
+        Me.INVNUMBER.HeaderText = "INVNUMBER"
+        Me.INVNUMBER.Name = "INVNUMBER"
+        Me.INVNUMBER.ReadOnly = True
+        Me.INVNUMBER.Width = 172
+        '
+        'Expr1
+        '
+        Me.Expr1.DataPropertyName = "Expr1"
+        Me.Expr1.HeaderText = "DATE"
+        Me.Expr1.Name = "Expr1"
+        Me.Expr1.ReadOnly = True
+        Me.Expr1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Expr1.Width = 171
+        '
+        'SEND
+        '
+        Me.SEND.DataPropertyName = "SEND"
+        Me.SEND.HeaderText = "SEND"
+        Me.SEND.Name = "SEND"
+        Me.SEND.ReadOnly = True
+        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.SEND.Width = 171
+        '
         'SENDComboBox
         '
         Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND", True))
@@ -270,7 +313,7 @@ Partial Class Form2
         Me.SENDComboBox.DataSource = Me.OEINVHOBindingSource2
         Me.SENDComboBox.DisplayMember = "SEND"
         Me.SENDComboBox.FormattingEnabled = True
-        Me.SENDComboBox.Location = New System.Drawing.Point(331, 102)
+        Me.SENDComboBox.Location = New System.Drawing.Point(474, 150)
         Me.SENDComboBox.Name = "SENDComboBox"
         Me.SENDComboBox.Size = New System.Drawing.Size(121, 21)
         Me.SENDComboBox.TabIndex = 15
@@ -290,45 +333,6 @@ Partial Class Form2
         '
         Me.OEINVHO1TableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Expr3
-        '
-        Me.Expr3.DataPropertyName = "Expr3"
-        Me.Expr3.HeaderText = "CUSTOMER NAME"
-        Me.Expr3.Name = "Expr3"
-        Me.Expr3.ReadOnly = True
-        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'INVNUMBER
-        '
-        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
-        Me.INVNUMBER.HeaderText = "INVNUMBER"
-        Me.INVNUMBER.Name = "INVNUMBER"
-        Me.INVNUMBER.ReadOnly = True
-        '
-        'Expr1
-        '
-        Me.Expr1.DataPropertyName = "Expr1"
-        Me.Expr1.HeaderText = "DATE"
-        Me.Expr1.Name = "Expr1"
-        Me.Expr1.ReadOnly = True
-        Me.Expr1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'SEND
-        '
-        Me.SEND.DataPropertyName = "SEND"
-        Me.SEND.HeaderText = "SEND"
-        Me.SEND.Name = "SEND"
-        Me.SEND.ReadOnly = True
-        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -343,8 +347,8 @@ Partial Class Form2
         Me.Controls.Add(SEND_INVOICELabel)
         Me.Controls.Add(Me.SEND_INVOICELabel1)
         Me.Controls.Add(Me.OEINVHOBindingNavigator)
-        Me.MinimizeBox = False
         Me.Name = "Form2"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Send Invoices"
         CType(Me.OEINVHOBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
