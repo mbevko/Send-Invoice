@@ -27,6 +27,7 @@ Partial Class Form2
         Dim SEND_INVOICELabel As System.Windows.Forms.Label
         Dim SENDLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.OEINVHOBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.OEINVHOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MFGCOMDataSet = New vb_sql.MFGCOMDataSet()
@@ -47,15 +48,15 @@ Partial Class Form2
         Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
         Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
+        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
+        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
-        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         INVUNIQLabel = New System.Windows.Forms.Label()
         SEND_INVOICELabel = New System.Windows.Forms.Label()
         SENDLabel = New System.Windows.Forms.Label()
@@ -101,10 +102,13 @@ Partial Class Form2
         'OEINVHOBindingNavigator
         '
         Me.OEINVHOBindingNavigator.AddNewItem = Nothing
+        Me.OEINVHOBindingNavigator.AutoSize = False
         Me.OEINVHOBindingNavigator.BindingSource = Me.OEINVHOBindingSource
+        Me.OEINVHOBindingNavigator.CanOverflow = False
         Me.OEINVHOBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.OEINVHOBindingNavigator.DeleteItem = Nothing
         Me.OEINVHOBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
+        Me.OEINVHOBindingNavigator.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.OEINVHOBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.OEINVHOBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.OEINVHOBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -112,7 +116,8 @@ Partial Class Form2
         Me.OEINVHOBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.OEINVHOBindingNavigator.Name = "OEINVHOBindingNavigator"
         Me.OEINVHOBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.OEINVHOBindingNavigator.Size = New System.Drawing.Size(899, 25)
+        Me.OEINVHOBindingNavigator.Size = New System.Drawing.Size(899, 27)
+        Me.OEINVHOBindingNavigator.Stretch = True
         Me.OEINVHOBindingNavigator.TabIndex = 3
         Me.OEINVHOBindingNavigator.Text = "BindingNavigator1"
         '
@@ -129,7 +134,7 @@ Partial Class Form2
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 24)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
@@ -139,7 +144,7 @@ Partial Class Form2
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 24)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -148,13 +153,13 @@ Partial Class Form2
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 24)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
         '
         'BindingNavigatorPositionItem
         '
@@ -168,7 +173,7 @@ Partial Class Form2
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -176,7 +181,7 @@ Partial Class Form2
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 24)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -185,13 +190,13 @@ Partial Class Form2
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 24)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
         '
         'INVUNIQLabel1
         '
@@ -243,58 +248,24 @@ Partial Class Form2
         Me.OEINVHODataGridView.AllowUserToAddRows = False
         Me.OEINVHODataGridView.AllowUserToDeleteRows = False
         Me.OEINVHODataGridView.AutoGenerateColumns = False
+        Me.OEINVHODataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.OEINVHODataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.OEINVHODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.OEINVHODataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.Expr3, Me.INVNUMBER, Me.Expr1, Me.SEND})
         Me.OEINVHODataGridView.DataSource = Me.OEINVHOBindingSource
         Me.OEINVHODataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OEINVHODataGridView.Location = New System.Drawing.Point(0, 25)
+        Me.OEINVHODataGridView.GridColor = System.Drawing.SystemColors.Control
+        Me.OEINVHODataGridView.Location = New System.Drawing.Point(0, 27)
         Me.OEINVHODataGridView.Name = "OEINVHODataGridView"
-        Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 484)
+        Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 482)
         Me.OEINVHODataGridView.TabIndex = 14
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn3.Width = 171
-        '
-        'Expr3
-        '
-        Me.Expr3.DataPropertyName = "Expr3"
-        Me.Expr3.HeaderText = "CUSTOMER NAME"
-        Me.Expr3.Name = "Expr3"
-        Me.Expr3.ReadOnly = True
-        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Expr3.Width = 171
-        '
-        'INVNUMBER
-        '
-        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
-        Me.INVNUMBER.HeaderText = "INVNUMBER"
-        Me.INVNUMBER.Name = "INVNUMBER"
-        Me.INVNUMBER.ReadOnly = True
-        Me.INVNUMBER.Width = 172
-        '
-        'Expr1
-        '
-        Me.Expr1.DataPropertyName = "Expr1"
-        Me.Expr1.HeaderText = "DATE"
-        Me.Expr1.Name = "Expr1"
-        Me.Expr1.ReadOnly = True
-        Me.Expr1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Expr1.Width = 171
-        '
-        'SEND
-        '
-        Me.SEND.DataPropertyName = "SEND"
-        Me.SEND.HeaderText = "SEND"
-        Me.SEND.Name = "SEND"
-        Me.SEND.ReadOnly = True
-        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SEND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.SEND.Width = 171
         '
         'SENDComboBox
         '
@@ -323,6 +294,48 @@ Partial Class Form2
         '
         Me.OEINVHO1TableAdapter.ClearBeforeFill = True
         '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "CUSTOMER NUMBER"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 171
+        '
+        'Expr3
+        '
+        Me.Expr3.DataPropertyName = "Expr3"
+        Me.Expr3.HeaderText = "CUSTOMER NAME"
+        Me.Expr3.Name = "Expr3"
+        Me.Expr3.ReadOnly = True
+        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Expr3.Width = 171
+        '
+        'INVNUMBER
+        '
+        Me.INVNUMBER.DataPropertyName = "INVNUMBER"
+        Me.INVNUMBER.HeaderText = "INVOICE NUMBER"
+        Me.INVNUMBER.Name = "INVNUMBER"
+        Me.INVNUMBER.ReadOnly = True
+        Me.INVNUMBER.Width = 172
+        '
+        'Expr1
+        '
+        Me.Expr1.DataPropertyName = "Expr1"
+        Me.Expr1.HeaderText = "DATE"
+        Me.Expr1.Name = "Expr1"
+        Me.Expr1.ReadOnly = True
+        Me.Expr1.Width = 171
+        '
+        'SEND
+        '
+        Me.SEND.DataPropertyName = "SEND"
+        Me.SEND.HeaderText = "SEND INVOICE"
+        Me.SEND.Name = "SEND"
+        Me.SEND.ReadOnly = True
+        Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SEND.Width = 171
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -337,8 +350,10 @@ Partial Class Form2
         Me.Controls.Add(SEND_INVOICELabel)
         Me.Controls.Add(Me.SEND_INVOICELabel1)
         Me.Controls.Add(Me.OEINVHOBindingNavigator)
+        Me.MaximizeBox = False
         Me.Name = "Form2"
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
+        Me.ShowIcon = False
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Send Invoices"
         CType(Me.OEINVHOBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
