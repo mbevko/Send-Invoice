@@ -1,9 +1,9 @@
 ﻿Public Class Form2
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet1.OEINVHO)
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO)
 
+        Me.OEINVHODataGridView.Sort(OEINVHODataGridView.Columns(2), System.ComponentModel.ListSortDirection.Descending)
 
     End Sub
 
@@ -25,7 +25,6 @@
         result = Me.OEINVHOTableAdapter.UpdateInvoice(yesNo, INVUNIQLabel1.Text)
 
         Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet.OEINVHO)
-        Me.OEINVHOTableAdapter.Fill(Me.MFGCOMDataSet1.OEINVHO)
 
     End Sub
 
