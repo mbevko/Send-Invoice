@@ -39,7 +39,6 @@ Partial Class Form2
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.INVUNIQLabel1 = New System.Windows.Forms.Label()
         Me.SEND_INVOICELabel1 = New System.Windows.Forms.Label()
         Me.OEINVHOTableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHOTableAdapter()
@@ -105,7 +104,7 @@ Partial Class Form2
         Me.OEINVHOBindingNavigator.BindingSource = Me.OEINVHOBindingSource
         Me.OEINVHOBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.OEINVHOBindingNavigator.DeleteItem = Nothing
-        Me.OEINVHOBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.ToolStripButton1})
+        Me.OEINVHOBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2})
         Me.OEINVHOBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.OEINVHOBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.OEINVHOBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -193,15 +192,6 @@ Partial Class Form2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = Global.vb_sql.My.Resources.Resources._3643749_edit_pen_pencil_write_writing_icon
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
         '
         'INVUNIQLabel1
         '
@@ -380,7 +370,6 @@ Partial Class Form2
     Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
-    Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents INVUNIQLabel1 As Label
     Friend WithEvents SEND_INVOICELabel1 As Label
