@@ -48,15 +48,15 @@ Partial Class Form2
         Me.MFGCOMDataSet2 = New vb_sql.MFGCOMDataSet()
         Me.OEINVHOBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.OEINVHODataGridView = New System.Windows.Forms.DataGridView()
-        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
-        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVNUMBER = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Expr1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SEND = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SENDComboBox = New System.Windows.Forms.ComboBox()
+        Me.OEINVHO1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHOBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OEINVHO1TableAdapter = New vb_sql.MFGCOMDataSetTableAdapters.OEINVHO1TableAdapter()
         INVUNIQLabel = New System.Windows.Forms.Label()
         SEND_INVOICELabel = New System.Windows.Forms.Label()
         SENDLabel = New System.Windows.Forms.Label()
@@ -267,33 +267,6 @@ Partial Class Form2
         Me.OEINVHODataGridView.Size = New System.Drawing.Size(899, 482)
         Me.OEINVHODataGridView.TabIndex = 14
         '
-        'SENDComboBox
-        '
-        Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND", True))
-        Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.OEINVHO1BindingSource, "VALUE", True))
-        Me.SENDComboBox.DataSource = Me.OEINVHOBindingSource2
-        Me.SENDComboBox.DisplayMember = "SEND"
-        Me.SENDComboBox.FormattingEnabled = True
-        Me.SENDComboBox.Location = New System.Drawing.Point(474, 150)
-        Me.SENDComboBox.Name = "SENDComboBox"
-        Me.SENDComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.SENDComboBox.TabIndex = 15
-        Me.SENDComboBox.ValueMember = "SEND INVOICE"
-        '
-        'OEINVHO1BindingSource
-        '
-        Me.OEINVHO1BindingSource.DataMember = "OEINVHO1"
-        Me.OEINVHO1BindingSource.DataSource = Me.MFGCOMDataSet
-        '
-        'OEINVHOBindingSource2
-        '
-        Me.OEINVHOBindingSource2.DataMember = "OEINVHO"
-        Me.OEINVHOBindingSource2.DataSource = Me.MFGCOMDataSet
-        '
-        'OEINVHO1TableAdapter
-        '
-        Me.OEINVHO1TableAdapter.ClearBeforeFill = True
-        '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "CUSTOMER"
@@ -334,6 +307,33 @@ Partial Class Form2
         Me.SEND.ReadOnly = True
         Me.SEND.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.SEND.Width = 171
+        '
+        'SENDComboBox
+        '
+        Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OEINVHOBindingSource, "SEND", True))
+        Me.SENDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.OEINVHO1BindingSource, "VALUE", True))
+        Me.SENDComboBox.DataSource = Me.OEINVHOBindingSource2
+        Me.SENDComboBox.DisplayMember = "SEND"
+        Me.SENDComboBox.FormattingEnabled = True
+        Me.SENDComboBox.Location = New System.Drawing.Point(474, 150)
+        Me.SENDComboBox.Name = "SENDComboBox"
+        Me.SENDComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.SENDComboBox.TabIndex = 15
+        Me.SENDComboBox.ValueMember = "SEND INVOICE"
+        '
+        'OEINVHO1BindingSource
+        '
+        Me.OEINVHO1BindingSource.DataMember = "OEINVHO1"
+        Me.OEINVHO1BindingSource.DataSource = Me.MFGCOMDataSet
+        '
+        'OEINVHOBindingSource2
+        '
+        Me.OEINVHOBindingSource2.DataMember = "OEINVHO"
+        Me.OEINVHOBindingSource2.DataSource = Me.MFGCOMDataSet
+        '
+        'OEINVHO1TableAdapter
+        '
+        Me.OEINVHO1TableAdapter.ClearBeforeFill = True
         '
         'Form2
         '

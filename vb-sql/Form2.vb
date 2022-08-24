@@ -9,7 +9,7 @@
             If Me.OEINVHODataGridView.Rows(i).Cells(4).Value = "YES" Then
                 Me.OEINVHODataGridView.Rows(i).DefaultCellStyle.BackColor = Color.WhiteSmoke
             ElseIf Me.OEINVHODataGridView.Rows(i).Cells(4).Value = "NO" Then
-                Me.OEINVHODataGridView.Rows(i).DefaultCellStyle.BackColor = Color.LightGray
+                Me.OEINVHODataGridView.Rows(i).DefaultCellStyle.BackColor = Color.Gray
             End If
         Next
 
