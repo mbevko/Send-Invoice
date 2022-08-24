@@ -308,7 +308,6 @@ Partial Class Form2
         Me.Expr3.HeaderText = "CUSTOMER NAME"
         Me.Expr3.Name = "Expr3"
         Me.Expr3.ReadOnly = True
-        Me.Expr3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.Expr3.Width = 171
         '
         'INVNUMBER
